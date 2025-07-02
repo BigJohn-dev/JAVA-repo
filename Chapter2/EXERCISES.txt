@@ -1,0 +1,10 @@
+EXERCISES
+2.7 Fill in the blanks 
+(a)Comment (b)If Statement (c)/ and % (d)curved (e)Variable
+
+2.9 State whether each of the following is true or false, if false explain why.
+(a)True (b)True (c)False, division has the highest (d)False java doesn't recognise it
+
+2.11 Which of the following Java statements contain variables whose values are not modified? Ans: System.out.println("m = m + 1");   
+
+2.12 Given that y = ax2 + 5x + 2, which of the following are correct Java statements for this equation? Ans: y = a * x * x + 5 * x + 2; 
