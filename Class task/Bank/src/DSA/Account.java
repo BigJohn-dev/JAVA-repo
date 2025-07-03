@@ -64,4 +64,10 @@ public class Account {
         }
         return null;
     }
-}
+
+    public void changePassword(String oldPassword, String newPassword) {
+        if (newPassword.equals(this.password) || newPassword.equals(oldPassword)) this.password = "Passwords still match";
+        else if (newPassword.equals(" ")) this.password = "Passwords is empty";
+        else this.password = newPassword;
+        }
+    }

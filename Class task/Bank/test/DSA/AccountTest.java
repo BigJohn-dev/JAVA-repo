@@ -192,5 +192,25 @@ public class AccountTest {
         assertEquals(null, loginAccount);
     }
 
+    @Test
+    public void updatePasswordTest() {
+        Account janeAccount = new Account("Jane", "2211", "1234567890", 0.0);
+        janeAccount.changePassword("2211", "4422");
+        assertEquals("4422", janeAccount.getPassword());
+    }
+
+    @Test
+    public void cannotUpdatePasswordWithOldPassword() {
+        Account janeAccount = new Account("Jane", "2211", "1234567890", 0.0);
+        janeAccount.changePassword("2211", "2211");
+        assertEquals("Passwords still match", janeAccount.getPassword());
+    }
+
+    @Test
+    public void cannotUpdatePasswordWithEmptyString() {
+        Account janeAccount = new Account("Jane", "2211", "1234567890", 0.0);
+        janeAccount.changePassword("2211", " ");
+        assertEquals("Passwords is empty", janeAccount.getPassword());
+    }
 
 }
