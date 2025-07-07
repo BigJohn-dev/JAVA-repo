@@ -1,9 +1,6 @@
 package DSA;
 
-import java.util.Arrays;
-
 public enum GeoPoliticalZones {
-     //private String[] politicalZones;
 
     NORTH_CENTRAL ("Benue", "FCT", "Kogi", "Kwara", "Nasarawa", "Niger", "Plateau"),
     NORTH_EAST ("Adamawa", "Bauchi", "Borno", "Gombe", "Taraba", "Yobe"),
@@ -12,13 +9,9 @@ public enum GeoPoliticalZones {
     SOUTH_SOUTH ("Akwa-Ibom", "Bayelsa", "Cross-River", "Delta", "Edo", "Rivers"),
     SOUTH_WEST ("Ekiti", "Lagos", "Osun", "Ondo", "Ogun", "Oyo", "Plateau");
 
-    GeoPoliticalZones(String... geoPoliticalZones) {
+    private String[] geoPoliticalZones;
 
-    }
-
-    public static void main(String[] args) {
-        for (GeoPoliticalZones zone : GeoPoliticalZones.values()) {
-            System.out.println(zone);
-        }
+    GeoPoliticalZones(String...geoPoliticalZones) {
+        this.geoPoliticalZones = geoPoliticalZones;
     }
 }
