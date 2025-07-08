@@ -11,6 +11,7 @@ public class Multiples {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Checking if the second number is a multiple of the first number\n");
+
         System.out.print("Enter the first number: ");
         int number1 = input.nextInt();
         System.out.print("Enter the second number: ");
