@@ -33,5 +33,5 @@ public class RandomVariable {
         Random picks = new Random();
         return picks.nextInt(-2, 10);
     }
-    
+
 }
