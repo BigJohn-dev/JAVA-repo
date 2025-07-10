@@ -7,12 +7,13 @@ public class AirConditioner {
 
     public void turnOn() { this.status = true;}
     public void turnOff(){ this.status = false;}
-    public boolean isOn() {return this.status;}
+    public boolean isOn() {return status;}
 
     public int getTemperature(){ return this.temperature;}
 
     public void increaseTemperature(int increment) {
         this.temperature += increment;
+
         if (temperature >= 30) this.temperature = 30;
     }
 
@@ -20,5 +21,4 @@ public class AirConditioner {
         this.temperature -= decrement;
         if (temperature <= 16) this.temperature = 16;
     }
-
 }
