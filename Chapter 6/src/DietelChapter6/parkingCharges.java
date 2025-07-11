@@ -1,17 +1,32 @@
 package DietelChapter6;
-import java.util.Scanner;
 
 public class parkingCharges {
-        public static void main(String[] var0) {
-            Scanner var1 = new Scanner(System.in);
+    private static double ParkingCharges = 2.0;
+    private static double additionalCharges = 0.50;
+    private static double maximumCharge = 10.0;
 
-            int var2;
-            do {
-                System.out.println("Enter number of hours your car was at the pack: ");
-                int var3 = var1.nextInt();
-                System.out.println(parkingChargesTest.calculateCharges(var3));
-                System.out.println("Do you want to continue (0 to continue or -1 to quit): ");
-                var2 = var1.nextInt();
-            } while(var2 != -1);
-        }
+    public parkingCharges(double ParkingCharges, double additionalCharges, double maximumCharge, int hoursCarPark) {
+        this.ParkingCharges = ParkingCharges;
+        this.additionalCharges = additionalCharges;
+        this.maximumCharge = maximumCharge;
+    }
+    public static double getParkingCharges() {
+        return ParkingCharges;
+    }
+    public static double getAdditionalCharges() {
+        return additionalCharges;
+    }
+    public static double getMaximumCharge() {
+        return maximumCharge;
+    }
+
+    public static String calculateCharges(int numberOfHours){
+        double result = 0.0;
+        if (numberOfHours < 0) return "Invalid time input!";
+        else
+            if (numberOfHours <= 3) result += numberOfHours * getParkingCharges();
+            else if (numberOfHours < 24) result += 3 * getParkingCharges() + (numberOfHours - 3) * getAdditionalCharges();
+            else result += 3 * getParkingCharges() + 21 * getAdditionalCharges() + (double) (numberOfHours - 24) / 24 * getMaximumCharge();
+        return "Your parking charge is $" + result;
+    }
 }
