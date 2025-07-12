@@ -29,11 +29,5 @@ public class StackTest {
         assertEquals("BMW", myStack.pop());
     }
 
-    @Test
-    public void pushFilledStackTest() {
-        StackOverflowMethods myStack = new StackOverflowMethods(4);
-
-    }
-
 
 }

@@ -6,7 +6,7 @@ public class StackOverflowMethods {
     private int count;
 
     public StackOverflowMethods(int size) {
-        elements = new String[size];
+        this.elements = new String[size];
     }
 
     public boolean isEmpty() {
@@ -18,6 +18,11 @@ public class StackOverflowMethods {
     }
 
     public String pop() {
+        if(isEmpty()) throw new StackUnderFlowException();
         return elements[--count];
     }
+
+    private void throwNewStackUnderFlowException() {
+    }
+
 }
