@@ -18,17 +18,17 @@ public class MainMenu {
             switch (choice) {
                 case 1 -> new PhoneBookMenu().display();
                 case 2 -> new MessageMenu().display();
-                case 3 -> System.out.println("Chat selected");
+                case 3 -> new  ChatMenu().display();
                 case 4 -> new CallRegisterMenu().display();
                 case 5 -> new TonesMenu().display();
                 case 6 -> new SettingsMenu().display();
-                case 7 -> System.out.println("Call divert selected");
-                case 8 -> System.out.println("Games selected");
-                case 9 -> System.out.println("Calculator selected");
-                case 10 -> System.out.println("Reminders selected");
+                case 7 -> new CallDivertMenu().display();
+                case 8 -> new  GamesMenu().display();
+                case 9 -> new  CalculatorMenu().display();
+                case 10 -> new  RemindersMenu().display();
                 case 11 -> new ClockMenu().display();
-                case 12 -> System.out.println("Profiles selected");
-                case 13 -> System.out.println("SIM services selected");
+                case 12 -> new ProfilesMenu().display();
+                case 13 -> new  SIMServicesMenu().display();
                 case 0 -> {
                     System.out.println("Exiting...");
                     return;

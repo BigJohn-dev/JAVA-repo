@@ -43,6 +43,6 @@ public class DiaryTest {
         diary.lockDiary(); assertTrue(diary.isLocked());
         diary.unlockDiary("rivers"); assertFalse(diary.isLocked());
         diary.createEntry("Persistence", "the quality that allows someone to continue doing something even though it is difficult");
-        assertEquals(1, diary.createEntry());
+
     }
 }

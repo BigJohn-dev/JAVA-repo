@@ -10,7 +10,7 @@ public class Diaries {
     }
     public Diary findByUsername(String username) {
         for (Diary diary : diaries) {
-            if (diary != null && diary.isLocked() && diary.userName.equals(username)) {
+            if (diary != null && diary.userName.equals(username)) {
                 return diary;
             }
         }
@@ -18,11 +18,10 @@ public class Diaries {
     }
 
     public void delete(String username, String password) {
-        if (findByUsername(username) == null) {
-            return;
+            Diary diary = findByUsername(username);
+            if (diary != null && diary.equals(password)) {
+                diaries.remove(diary);
+            }
         }
-        diaries.removeIf(diary ->
-                diary.username.equals(username) && diary.password.equals(password)
-        );
+
     }
-}
