@@ -9,53 +9,52 @@ public class ContactTest {
 
     @Test
     public void testThatAccountIsCreated() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
+        Contact contact = new Contact("John", "Doe", "08012345678", "bigjohn@gmail.com");
         assertNotNull(contact);
     }
 
     @Test
     public void testGettersReturnCorrectValues() {
-        Contact contact = new Contact("Jane", "Smith", "0987654321");
+        Contact contact = new Contact("Jane", "Smith", "08012345678","bigjohn@gmail.com");
         assertEquals("Jane Smith", contact.getName());
-        assertEquals("0987654321", contact.getPhoneNumber());
+        assertEquals("08012345678", contact.getPhoneNumber());
+        assertEquals("bigjohn@gmail.com", contact.getEmail());
     }
 
     @Test
     public void testThatEitherNameGivenIsNotEmpty() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
-        assertThrows(IllegalArgumentException.class, () -> new Contact(" ", " ", "1234567890"));
+        Contact contact = new Contact("John", "Doe", "08012345678", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact(" ", " ", "08012345678", "bigjohn@gmail.com"));
     }
 
     @Test
-    public void testThatEitherPhoneNumberGivenIsNotEmpty() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
-        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", " "));
+    public void testThatPhoneNumberGivenIsNotEmpty() {
+        Contact contact = new Contact("John", "Doe", "08012345678", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", " ", "bigjohn@gmail.com"));
     }
 
     @Test
-    public void testThatEitherPhoneNumberGivenIsNotMoreThan11Digits() {
-        Contact contact = new Contact("John", "Doe", "0801123567");
-        assertEquals(11, contact.getPhoneNumber().length());
-        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "08011234567"));
-    }
-    @Test
-    public void testSetFirstName() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
-        contact.setFirstName("Alice");
-        assertEquals("Alice", contact.getFirstName());
+    public void testThatPhoneNumberGivenIs11Digits() {
+        Contact contact = new Contact("John", "Doe", "08011235674", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "080112345674", "bigjohn@gmail.com"));
     }
 
     @Test
-    public void testSetLastName() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
-        contact.setLastName("Brown");
-        assertEquals("Brown", contact.getLastName());
+    public void testThatEmailGivenIsNotEmpty() {
+        Contact contact = new Contact("John", "Doe", "08011234567", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "08011234567", " "));
     }
 
     @Test
-    public void testSetPhoneNumber() {
-        Contact contact = new Contact("John", "Doe", "1234567890");
-        contact.setPhoneNumber("5555555555");
-        assertEquals("5555555555", contact.getPhoneNumber());
+    public void testThatEmailGivenHaveAtSymbol() {
+        Contact contact = new Contact("John", "Doe", "08011234567", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "08011234567", "bigjohngmail.com"));
     }
+
+    @Test
+    public void testThatEmailGivenEndsWithTheGmailSyntax() {
+        Contact contact = new Contact("John", "Doe", "08011234567", "bigjohn@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "08011234567", "bigjohn@gmail"));
+    }
+
 }
