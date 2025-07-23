@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class PhoneBook {
     private ArrayList<Contact> contacts;
+    private int contactCount;
 
     public PhoneBook() {
-        contacts = new ArrayList<>();
+        this.contacts = new ArrayList<>();
+        this.contactCount = 0;
     }
-    public ArrayList<Contact> addContact(Contact contact) {
-        contacts.add(contact);
-        return contacts;
-    }
-    public ArrayList<Contact> getContacts() {
-        return contacts;
+
+    public void addContact(Contact contact) {
+       contacts.add(contact);
+       contactCount++;
     }
 }

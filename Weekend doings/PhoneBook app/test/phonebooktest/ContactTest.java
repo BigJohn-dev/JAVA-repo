@@ -57,4 +57,9 @@ public class ContactTest {
         assertThrows(IllegalArgumentException.class, () -> new Contact("John", "Doe", "08011234567", "bigjohn@gmail"));
     }
 
+    @Test
+    public void testThatEmailGivenAreConvertedToSmallCaseIgnoringUserInput() {
+        Contact contact = new Contact("John", "Doe", "08011234567", "BigJohn@gmail.com");
+        assertEquals("bigjohn@gmail.com", contact.getEmail());
+    }
 }

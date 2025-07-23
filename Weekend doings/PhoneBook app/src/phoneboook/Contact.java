@@ -34,6 +34,7 @@ public class Contact {
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        validatePhoneNumber(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -44,8 +45,11 @@ public class Contact {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setEmail(String email) { this.email = email; }
-    public String getEmail() { return  email; }
+    public void setEmail(String email) {
+        validateEmail(email);
+        this.email = email;
+    }
+    public String getEmail() { return  email.toLowerCase(); }
 
 
     public void validateName(String name) {
@@ -60,6 +64,6 @@ public class Contact {
 
     public void validateEmail(String email) {
         if (email.isBlank() || email.length() > 50) throw new IllegalArgumentException("Email or empty");
-        if(!(email.contains("@") || email.contains(".com"))) throw new IllegalArgumentException("Email address not properly written");
+        if(!(email.contains("@") && email.contains(".com"))) throw new IllegalArgumentException("Email address not properly written");
     }
 }
